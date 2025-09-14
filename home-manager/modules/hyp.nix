@@ -20,7 +20,11 @@
         "$mainMod, 0, workspace, 10" 
       ];
 
-      exec-once = [ "alacritty" ];
+      exec-once = [
+        "alacritty" 
+        "waybar"
+         
+      ];
 
       input = {
         kb_layout = "us,ru";
@@ -29,7 +33,7 @@
         follow_mouse = 1;
 
         touchpad = {
-          natural_scroll = true;
+          natural_scroll = false;
         };
 
         sensitivity = 0;

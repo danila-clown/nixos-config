@@ -10,6 +10,7 @@
     ./modules/bundle.nix
   ];
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   networking.hostName = hostname;
   system.stateVersion = stateVersion;
 }

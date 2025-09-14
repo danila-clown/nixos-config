@@ -8,5 +8,7 @@
     firefox
     alacritty
     vscode
+    jdk17
+    maven
   ];
 }
