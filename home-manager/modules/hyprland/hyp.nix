@@ -8,6 +8,7 @@
       monitor = "eDP-1,1920x1080@120,auto,1";
       bind = [
         "$mainMod, Return, exec, alacritty"
+        "$mainMod, F, exec, firefox"
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"
         "$mainMod, 3, workspace, 3"
@@ -17,7 +18,8 @@
         "$mainMod, 7, workspace, 7"
         "$mainMod, 8, workspace, 8"
         "$mainMod, 9, workspace, 9"
-        "$mainMod, 0, workspace, 10" 
+        "$mainMod, 0, workspace, 10"
+        "$mainMod, Q, killactive," 
       ];
 
       exec-once = [

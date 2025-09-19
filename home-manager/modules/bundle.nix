@@ -2,8 +2,7 @@
   imports = [
     ./zsh.nix
     ./nvidia.nix
-    ./hyp.nix
+    ./hyprland/bundle.nix
     ./waybar.nix
-    ./vscode/java.nix
   ];
 }

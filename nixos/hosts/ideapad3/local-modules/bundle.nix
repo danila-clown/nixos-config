@@ -1,9 +1,11 @@
 {
   imports = [
+    ./bluetooth.nix
     ./bootloader.nix
     ./desktop.nix
-    ./env.nix
     ./networkmanager.nix
+    ./sound.nix
+    ./trim.nix
     ./user.nix
   ];
 }
