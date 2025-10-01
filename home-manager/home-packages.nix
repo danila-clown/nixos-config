@@ -8,6 +8,7 @@
     firefox
     alacritty
     vscode
+    telegram-desktop
 
     jdk17
     maven

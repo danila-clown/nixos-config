@@ -22,6 +22,7 @@
     slurp
     brightnessctl
     home-manager
+    swww
 
     # Hardware Support
     bluez

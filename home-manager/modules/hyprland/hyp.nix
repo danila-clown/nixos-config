@@ -4,7 +4,7 @@
     xwayland.enable = true;
 
     settings = {
-      env [
+      env = [
         "NIXOS_OZONE_WL,1"
         "WRL_NO_HARDWARE_CURSORS,1"
         "QT_QPA_PLATFORM,wayland"
@@ -14,27 +14,14 @@
       ];
 
       "$mainMod" = "SUPER";
-      monitor = "eDP-1,1920x1080@120,auto,1";
-      bind = [
-        "$mainMod, Return, exec, alacritty"
-        "$mainMod, F, exec, firefox"
-        "$mainMod, 1, workspace, 1"
-        "$mainMod, 2, workspace, 2"
-        "$mainMod, 3, workspace, 3"
-        "$mainMod, 4, workspace, 4"
-        "$mainMod, 5, workspace, 5"
-        "$mainMod, 6, workspace, 6"
-        "$mainMod, 7, workspace, 7"
-        "$mainMod, 8, workspace, 8"
-        "$mainMod, 9, workspace, 9"
-        "$mainMod, 0, workspace, 10"
-        "$mainMod, Q, killactive," 
+      
+      monitor = [
+        "eDP-1,1920x1080@120,auto,1"
+        "HDMI-A-1,1920x1080@240,-1920x0,1"
       ];
 
       exec-once = [
-        "alacritty" 
         "waybar"
-         
       ];
 
       input = {
@@ -44,7 +31,7 @@
         follow_mouse = 1;
 
         touchpad = {
-          natural_scroll = false;
+          natural_scroll = true;
         };
 
         sensitivity = 0;

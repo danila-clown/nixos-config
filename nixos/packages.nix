@@ -18,7 +18,6 @@
     lm_sensors
     dmidecode
     smartmontools
-    home-manager
 
     # Network utilities
     bind
