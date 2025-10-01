@@ -3,10 +3,6 @@
 {
   wayland.windowManager.hyprland.settings = {
     bind = [
-      "$mainMod, Return, exec, alacritty"
-      "$mainMod, F, exec, firefox"
-      "$mainMod, V, exec, code"
-      "$mainMod, T, exec, telegram-desktop"
       "$mainMod, 1, workspace, 1"
       "$mainMod, 2, workspace, 2"
       "$mainMod, 3, workspace, 3"
@@ -17,7 +13,12 @@
       "$mainMod, 8, workspace, 8"
       "$mainMod, 9, workspace, 9"
       "$mainMod, 0, workspace, 10"
+
       "$mainMod, Q, killactive," 
+      "$mainMod, Return, exec, alacritty"
+      "$mainMod, F, exec, firefox"
+      "$mainMod, V, exec, code"
+      "$mainMod, T, exec, telegram-desktop"
     ];
   };
 }

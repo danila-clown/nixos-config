@@ -7,8 +7,8 @@
   home.file."lock.png".source = ../assets/wall.jpg;
 
   home.file.".config/hypr/hyprpaper.conf".text = ''
-    preload = ~/wall.jpg
-    wallpaper = ,~/wall.jpg
+    preload = ~/wallpaper.jpg
+    wallpaper = ,~/wallpaper.jpg
   '';
 
   wayland.windowManager.hyprland.settings.exec-once = [ "hyprpaper" ];

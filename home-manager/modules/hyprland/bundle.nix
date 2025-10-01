@@ -2,9 +2,9 @@
   imports = [
     ./bind.nix
     ./hyp.nix
-    ./hypridle.nix
-    ./hyprlock.nix
+    #./hypridle.nix
+    #./hyprlock.nix
     ./hyprpaper.nix
-    ./settings.nix
+    #./settings.nix
   ];
 }

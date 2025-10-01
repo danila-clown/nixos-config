@@ -1,15 +1,7 @@
-{ config, pkgs, ... }:
+{ config, pkgs, ... }: 
 
 {
-  nixpkgs.config.allowUnfree = true;
-
-  services.xserver.enable = true;
-  services.seatd.enable = true;
-
+  services.xserver.videoDrivers = [ "amdgpu" ];
+  boot.blacklistedKernelModules = [ "nvidia" "nvidia_drm" "nvidia_modeset" "nvidia_uvm" ];
   hardware.opengl.enable = true;
-
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia.open = false;
-
-  programs.hyprland.enable = true;  
 }

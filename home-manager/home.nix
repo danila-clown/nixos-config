@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./fonts.nix
     ./home-packages.nix
     ./modules/bundle.nix
   ];
