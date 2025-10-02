@@ -4,6 +4,6 @@
     #./hypridle.nix
     #./hyprlock.nix
     ./hyprpaper.nix
-    #./settings.nix
+    ./settings.nix
   ];
 }
