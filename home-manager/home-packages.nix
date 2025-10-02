@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, go-1_22, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -12,6 +12,6 @@
 
     jdk17
     maven
-    go
+    go-1_22
   ];
 }
