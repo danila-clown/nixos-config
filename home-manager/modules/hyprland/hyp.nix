@@ -13,6 +13,8 @@
         "XDG_SESSION_TYPE,wayland"
       ];
 
+      cursor.no_hardware_cursors = true;
+
       "$mainMod" = "SUPER";
       
       monitor = [
