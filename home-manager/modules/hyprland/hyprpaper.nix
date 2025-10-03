@@ -1,15 +1,18 @@
-{ config, pkgs, lib, ... }: 
+{ config, ... }: 
 
 {
-  home.packages = [ pkgs.hyprpaper ];
+  services.hyprpaper = {
+    enable = true;
+    
+    settings = {
+    preload = [
+        "${../assets/wall.jpg}"
+      ];
 
-  home.file."wallpaper.jpg".source = ../assets/wall.jpg;
-  home.file."lock.png".source = ../assets/wall.jpg;
-
-  home.file.".config/hypr/hyprpaper.conf".text = ''
-    preload = ../assets/wall.jpg
-    wallpaper = ../assets/wall.jpg
-  '';
-
-  wayland.windowManager.hyprland.settings.exec-once = [ "hyprpaper" ];
+      wallpaper = [
+        "eDP-1,${../assets/wall.jpg}"
+        "HDMI-A-1,${../assets/wall.jpg}"
+      ];
+    };
+  };
 }
