@@ -3,9 +3,13 @@
 {
   services.hyprpaper = {
     enable = true;
-    
+
     settings = {
-    preload = [
+      misc = {
+        splash = false;
+      };
+      
+      preload = [
         "${../assets/wall.jpg}"
       ];
 

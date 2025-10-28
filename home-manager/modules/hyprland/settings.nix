@@ -13,13 +13,23 @@
         "XDG_SESSION_TYPE,wayland"
       ];
 
+      misc = {
+        disable_splash_rendering = true; 
+        disable_hyprland_logo = true;
+      };
+
+      animations = {
+        enabled = true;
+        first_launch_animation = 0;
+      };
+
       cursor.no_hardware_cursors = true;
 
       "$mainMod" = "SUPER";
       
       monitor = [
-        "eDP-1,1920x1080@120,auto,1"
-        "HDMI-A-1,1920x1080@240,-1920x0,1"
+        "eDP-1,1920x1080@120,0x0,1"
+        "HDMI-A-1,1920x1080@240,1920x0,1"
       ];
 
       exec-once = [

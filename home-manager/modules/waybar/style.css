@@ -1,0 +1,26 @@
+* {
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+window#waybar {
+    background: #222;
+    color: #eee;
+}
+
+#clock {
+    padding: 0 10px;
+}
+
+#custom-workspaces .workspace {
+  padding: 0 10px;
+  color: #a3be8c;
+  background: transparent;
+  border-radius: 4px;
+}
+
+#custom-workspaces .workspace.focused {
+  color: #ffffff;
+  background: rgba(94, 129, 172, 0.6);
+  font-weight: bold;
+}
