@@ -1,0 +1,3 @@
+{
+  programs.hyprsome.enable = true;
+}

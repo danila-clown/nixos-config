@@ -9,12 +9,12 @@
     alacritty
     vscode
     telegram-desktop
-    hiddify-app
 
     jdk17
     maven
     go-1_22
 
+    hyprsome
     grimblast
     jq
   ];
