@@ -16,24 +16,32 @@
       "$mainMod, 0, exec, hyprsome workspace 10"
 
       # Moving windows to workspaces
-      "$mainMod SHIFT, 1, exec, hyprsome movetoworkspace 1"
-      "$mainMod SHIFT, 2, exec, hyprsome movetoworkspace 2"
-      "$mainMod SHIFT, 3, exec, hyprsome movetoworkspace 3"
-      "$mainMod SHIFT, 4, exec, hyprsome movetoworkspace 4"
-      "$mainMod SHIFT, 5, exec, hyprsome movetoworkspace 5"
-      "$mainMod SHIFT, 6, exec, hyprsome movetoworkspace 6"
-      "$mainMod SHIFT, 7, exec, hyprsome movetoworkspace 7"
-      "$mainMod SHIFT, 8, exec, hyprsome movetoworkspace 8"
-      "$mainMod SHIFT, 9, exec, hyprsome movetoworkspace 9"
-      "$mainMod SHIFT, 0, exec, hyprsome movetoworkspace 10"
+      "$mainMod SHIFT, 1, exec, hyprsome move 1"
+      "$mainMod SHIFT, 2, exec, hyprsome move 2"
+      "$mainMod SHIFT, 3, exec, hyprsome move 3"
+      "$mainMod SHIFT, 4, exec, hyprsome move 4"
+      "$mainMod SHIFT, 5, exec, hyprsome move 5"
+      "$mainMod SHIFT, 6, exec, hyprsome move 6"
+      "$mainMod SHIFT, 7, exec, hyprsome move 7"
+      "$mainMod SHIFT, 8, exec, hyprsome move 8"
+      "$mainMod SHIFT, 9, exec, hyprsome move 9"
+      "$mainMod SHIFT, 0, exec, hyprsome move 10"
 
       # Moving windows
-      "$mainMod, H, movewindow, l"
-      "$mainMod, J, movewindow, d"
-      "$mainMod, K, movewindow, u"
-      "$mainMod, L, movewindow, r"
+      "$mainMod SHIFT, H, movewindow, l"
+      "$mainMod SHIFT, J, movewindow, d"
+      "$mainMod SHIFT, K, movewindow, u"
+      "$mainMod SHIFT, L, movewindow, r"
 
-      "$mainMod, Q, killactive," 
+      # Moving focus
+      "$mainMod, H, exec, hyprctl dispatch movefocus l"
+      "$mainMod, J, exec, hyprctl dispatch movefocus d"
+      "$mainMod, K, exec, hyprctl dispatch movefocus u"
+      "$mainMod, L, exec, hyprctl dispatch movefocus r"
+
+
+      
+      "$mainMod, Q, killactive,"
       "$mainMod, Return, exec, alacritty"
       "$mainMod, F, exec, firefox"
       "$mainMod, V, exec, code"
