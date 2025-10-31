@@ -1,54 +1,48 @@
 /* === Общие стили === */
 * {
-    font-family: Hack Nerd Font;
+    font-family: "Hack Nerd Font", monospace;
     font-weight: 400;
     font-size: 12px;
-    border-radius: 7px;
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0); /* Тёмно-синий фон, как на скрине */
+    background-color: rgba(43, 48, 59, 0);
     color: #ffffff;
-    border-radius: 0px;
-    transition-property: background-color;
-    transition-duration: .5s;
+    transition: background-color 0.5s;
 }
 
 tooltip {
     background: rgb(30, 30, 46);
     border-radius: 7px;
+    padding: 4px 8px;
 }
 
-/* === Часы === */
-#clock {
+#clock,
+#custom-power {
     padding: 0 10px;
     margin: 4px;
-    background: rgba(30, 30, 46, 0.7); /* Тёмный блок, как на скрине */
-    color: #ffffff;                   /* Белый текст */
+    background: rgba(30, 30, 46, 0.7);
+    color: #ffffff;
     border-radius: 7px;
 }
 
-/* === Рабочие столы === */
 #workspaces {
     background: rgb(30, 30, 46);
     color: #f5e0dc;
-    padding: 1px 1px 1px 1px;
-    margin-top: 5px;
-    margin-right: 8px;
-    margin-left: 8px;
-    
+    padding: 1px;
+    margin: 5px 8px;
 }
 
 #workspaces button {
     padding: 0 8px;
     margin: 0 2px;
-    color: #ffffff;                   /* Белые цифры */
+    color: #ffffff;
     background: transparent;
     border-radius: 5px;
 }
 
 #workspaces button.active {
-    background: rgba(167, 95, 255, 0.6); /* Фиолетовый акцент — @primary */
+    background: rgba(167, 95, 255, 0.6);
 }
 
 #workspaces button:hover {

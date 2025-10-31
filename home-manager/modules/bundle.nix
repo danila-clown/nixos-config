@@ -2,7 +2,7 @@
   imports = [
     ./hyprland/bundle.nix
     ./waybar/waybar.nix
-    ./wlogout/layout.nix
+    ./wlogout/wlogout.nix
     ./nvidia.nix
     ./zsh.nix
   ];

@@ -29,30 +29,27 @@
         "custom/power" = {
           format = " ⏻ ";
           tooltip = false;
-          on-click = wlogout -b 4;
-        }
+          on-click = "${pkgs.writeShellScriptBin "wlogout-wrapper" ''
+          hyprctl cursor hide
+          wlogout -b 4
+          hyprctl cursor show
+        ''}/bin/wlogout-wrapper";
+        };
 
 
         /* === BUILT-IN MODULES === */
         "hyprland/workspaces" = {
-          format = "{icon}";
-          disable-scroll = true;
-          show-special = true;
-          special-visible-only = true;
-          all-outputs = true;
-          format-icons = {
-            "1" = "1";
-            "2" = "2";
-            "3" = "3";
-            "4" = "4";
-            "5" = "5";
-            "6" = "6";
-            "7" = "7";
-            "8" = "8";
-            "9" = "9";
-            "10" = "10";
-          };
-          persistentWorkspaces = [ "1" "2" "3" "4" "5" "6" "7" "8" "9" "10" ];
+          "all-outputs" = false;
+          "active-only" = false;
+          "on-click" = "activate";
+          "disable-scroll" = true;
+          "on-scroll-up" = "hyprctl dispatch workspace -1";
+          "on-scroll-down" = "hyprctl dispatch workspace +1";
+          "persistent-workspaces" = builtins.listToAttrs (map (n: {
+            name = toString n;
+            value = [ ];
+          }) (builtins.genList (x: x + 1) 10));
+          "sort-by-number" = true;
         };
 
         "clock" = {

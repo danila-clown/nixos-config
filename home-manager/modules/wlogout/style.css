@@ -1,5 +1,4 @@
 * {
-	background-image: none;
 	box-shadow: none;
 }
 
@@ -9,7 +8,7 @@ window {
 }
 
 button {
-    border-radius: 25;
+    border-radius: 25px;
     border-color: #18191a;
 	text-decoration-color: #FFFFFF;
     color: #FFFFFF;
@@ -19,8 +18,7 @@ button {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 25%;
-	margin: 5
-
+	margin: 5px;
 }
 
 button:focus, button:active, button:hover {
@@ -30,18 +28,7 @@ button:focus, button:active, button:hover {
 	transition: all 0.2s cubic-bezier(.55,0.0,.28,1.682);
 }
 
-#lock {
-background-image: url("./assets/lock.png");
-}
-
-#logout {
-background-image: url("./assets/logout.png");
-}
-
-#shutdown {
-background-image: url("./assets/shutdown.png");
-}
-
-#reboot {
-background-image: url("./assets/reboot.png");
-}
+#lock      { background-image: url("/home/clown/setting/nixos-config/home-manager/modules/wlogout/icons/lock.png"); }
+#logout    { background-image: url("icons/logout.png"); }
+#reboot    { background-image: url("./icons/reboot.png"); }
+#shutdown  { background-image: url("./icons/shutdown.png"); }
