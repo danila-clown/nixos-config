@@ -38,9 +38,10 @@
       "$mainMod, J, exec, hyprctl dispatch movefocus d"
       "$mainMod, K, exec, hyprctl dispatch movefocus u"
       "$mainMod, L, exec, hyprctl dispatch movefocus r"
+      "$mainMod, Tab, exec, hyprctl dispatch cyclenext"
 
 
-      
+
       "$mainMod, Q, killactive,"
       "$mainMod, Return, exec, alacritty"
       "$mainMod, F, exec, firefox"

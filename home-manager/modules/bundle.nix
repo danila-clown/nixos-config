@@ -1,8 +1,9 @@
 {
   imports = [
-    ./zsh.nix
-    ./nvidia.nix
     ./hyprland/bundle.nix
     ./waybar/waybar.nix
+    ./wlogout/layout.nix
+    ./nvidia.nix
+    ./zsh.nix
   ];
 }

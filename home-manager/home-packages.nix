@@ -14,6 +14,7 @@
     maven
     go-1_22
 
+    wlogout
     hyprsome
     grimblast
     jq

@@ -10,12 +10,12 @@
       };
       
       preload = [
-        "${../assets/wall.jpg}"
+        "${./assets/wall.jpg}"
       ];
 
       wallpaper = [
-        "eDP-1,${../assets/wall.jpg}"
-        "HDMI-A-1,${../assets/wall.jpg}"
+        "eDP-1,${./assets/wall.jpg}"
+        "HDMI-A-1,${./assets/wall.jpg}"
       ];
     };
   };

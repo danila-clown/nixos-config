@@ -21,31 +21,38 @@
           "clock"
         ];
         modules-right = [
-
+          "custom/power"
         ];
 
 
         /* === CUSTOM MODULES === */
-        #
+        "custom/power" = {
+          format = " ⏻ ";
+          tooltip = false;
+          on-click = wlogout -b 4;
+        }
 
 
         /* === BUILT-IN MODULES === */
         "hyprland/workspaces" = {
           format = "{icon}";
+          disable-scroll = true;
+          show-special = true;
+          special-visible-only = true;
+          all-outputs = true;
           format-icons = {
-            "1" = "I";
-            "2" = "II";
-            "3" = "III";
-            "4" = "IV";
-            "5" = "V";
-            "6" = "VI";
-            "7" = "VII";
-            "8" = "VIII";
-            "9" = "IX";
-            "10" = "X";
+            "1" = "1";
+            "2" = "2";
+            "3" = "3";
+            "4" = "4";
+            "5" = "5";
+            "6" = "6";
+            "7" = "7";
+            "8" = "8";
+            "9" = "9";
+            "10" = "10";
           };
           persistentWorkspaces = [ "1" "2" "3" "4" "5" "6" "7" "8" "9" "10" ];
-          allOutputs = true;
         };
 
         "clock" = {
