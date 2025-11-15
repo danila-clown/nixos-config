@@ -1,4 +1,4 @@
-{ pkgs, go-1_22, ... }:
+{ pkgs, winapps, go-1_22, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -6,6 +6,7 @@
   home.packages = with pkgs; [
     neofetch
     firefox
+    obsidian
     alacritty
     vscode
     telegram-desktop
@@ -18,5 +19,24 @@
     hyprsome
     grimblast
     jq
+    nasm
+    postman
+
+    nodejs_20
+    typescript
+    ollama
+
+    winapps.winapps
+    winapps.winapps-launcher
+    freerdp
+    dialog
+    iproute2
+    libnotify
+    netcat
+    mako
   ];
+
+  services.ollama = {
+    enable = true;
+  };
 }

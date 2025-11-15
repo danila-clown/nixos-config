@@ -15,6 +15,7 @@
 
         /* === WORKSPACES === */
         modules-left = [
+          # "custom/workspaces"
           "hyprland/workspaces"
         ];
         modules-center = [
@@ -26,6 +27,26 @@
 
 
         /* === CUSTOM MODULES === */
+        # "custom/workspaces" = {
+        #   exec = ''echo "[{"name":"1","class":"workspace","icon":"I","focused":true},{"name":"2","class":"workspace","icon":"II","focused":false},{"name":"3","class":"workspace","icon":"III","focused":false}]"'';
+        #   interval = 1;
+        #   format = "{name}"; 
+        #   return-type = "json";
+        # };
+        "hyprland/workspaces" = {
+          "all-outputs" = false;
+          "active-only" = false;
+          "on-click" = "activate";
+          "disable-scroll" = false;
+          "on-scroll-up" = "hyprctl dispatch workspace -1";
+          "on-scroll-down" = "hyprctl dispatch workspace +1";
+          "persistent-workspaces" = builtins.listToAttrs (map (n: {
+            name = toString n;
+            value = [ ];
+          }) (builtins.genList (x: x + 1) 10));
+          "sort-by-number" = true;
+        };
+
         "custom/power" = {
           format = " ⏻ ";
           tooltip = false;
@@ -38,20 +59,6 @@
 
 
         /* === BUILT-IN MODULES === */
-        "hyprland/workspaces" = {
-          "all-outputs" = false;
-          "active-only" = false;
-          "on-click" = "activate";
-          "disable-scroll" = true;
-          "on-scroll-up" = "hyprctl dispatch workspace -1";
-          "on-scroll-down" = "hyprctl dispatch workspace +1";
-          "persistent-workspaces" = builtins.listToAttrs (map (n: {
-            name = toString n;
-            value = [ ];
-          }) (builtins.genList (x: x + 1) 10));
-          "sort-by-number" = true;
-        };
-
         "clock" = {
           format = "{:%H:%M}";
           tooltip = false;

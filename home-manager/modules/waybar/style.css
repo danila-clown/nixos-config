@@ -18,33 +18,11 @@ tooltip {
 }
 
 #clock,
-#custom-power {
+#custom-power,
+#custom-workspaces {
     padding: 0 10px;
     margin: 4px;
     background: rgba(30, 30, 46, 0.7);
     color: #ffffff;
     border-radius: 7px;
-}
-
-#workspaces {
-    background: rgb(30, 30, 46);
-    color: #f5e0dc;
-    padding: 1px;
-    margin: 5px 8px;
-}
-
-#workspaces button {
-    padding: 0 8px;
-    margin: 0 2px;
-    color: #ffffff;
-    background: transparent;
-    border-radius: 5px;
-}
-
-#workspaces button.active {
-    background: rgba(167, 95, 255, 0.6);
-}
-
-#workspaces button:hover {
-    background: rgba(167, 95, 255, 0.4);
 }

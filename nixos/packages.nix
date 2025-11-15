@@ -11,6 +11,7 @@
     rsync
     file
     tree
+    docker
 
     # System monitoring
     htop
