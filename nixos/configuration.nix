@@ -2,12 +2,10 @@
 
 {
   imports = [
-    ./hosts/${hostname}/hardware-configuration.nix
-    ./hosts/${hostname}/local-packages.nix
-    ./hosts/${hostname}/local-modules/bundle.nix
+    ./hosts/${hostname}/imports.nix
 
     ./packages.nix
-    ./modules/bundle.nix
+    ./modules/imports.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

@@ -2,9 +2,7 @@
 
 {
   imports = [
-    ./fonts.nix
-    ./home-packages.nix
-    ./modules/bundle.nix
+    ./modules/imports.nix
   ];
 
   home = {

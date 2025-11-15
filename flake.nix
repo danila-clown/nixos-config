@@ -14,7 +14,7 @@
 
   };
 
-  outputs = { self, nixpkgs, nixpkgs-24_05, home-manager, winapps, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-24_05, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       user = "clown";
@@ -38,7 +38,6 @@
         extraSpecialArgs = {
           inherit inputs user homeStateVersion;
           go-1_22 = pkgs-24_05.go;
-          winapps = inputs.winapps.packages.${system};
         };
         modules = [ ./home-manager/home.nix ];
       };
