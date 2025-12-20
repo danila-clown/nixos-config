@@ -1,7 +1,7 @@
 {
   imports = [
-    ./modules/apps/imports.nix
-    ./modules/ui/imports.nix
+    ./apps/imports.nix
+    ./ui/imports.nix
 
     ./fonts.nix
     ./packages.nix
