@@ -1,3 +1,11 @@
+environment {
+    TERMINAL "alacritty"
+    BROWSER "firefox"
+
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+}
+
+
 //  ██╗███╗   ██╗██████╗ ██╗   ██╗████████╗
 //  ██║████╗  ██║██╔══██╗██║   ██║╚══██╔══╝
 //  ██║██╔██╗ ██║██████╔╝██║   ██║   ██║   
@@ -6,32 +14,17 @@
 //  ╚═╝╚═╝  ╚═══╝╚═╝      ╚═════╝    ╚═╝  
 input {
     keyboard {
-        xkb-layout "us,ru"
-        xkb-variant ""
-        xkb-options "grp:alt_shift_toggle"
-        repeat-delay 600
-        repeat-rate 25
-        repeat-exclude-keys []
+        xkb {
+	        layout "us,ru"
+	        options "grp:alt_shift_toggle"
+        }
     }
 
-    pointer {
-        acceleration 0.0
-        acceleration-profile "default"
-        natural-scroll false
-        scroll-factor 1.0
-    }
-
-    touch {
-        disable-while-typing true
-    }
-
-    cursor {
-        hide-when-typing true
-        hide-on-touch true
-        hide-timeout 0
+    touchpad {
+        tap
+        natural-scroll
     }
 }
-
 
 //   ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗
 //  ██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝
@@ -39,13 +32,14 @@ input {
 //  ██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   
 //  ╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   
 //   ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   
-output "*" {
+output "eDP-1" {
     scale 1.0
-    mode "1920x1080@120Hz"
-    position 0 0
-    transform "normal"
-    adaptive-sync false
-    gamma 1.0 1.0 1.0
+    mode "1920x1080@120"
+}
+
+output "HDMI-A-1" {
+    scale 1.0
+    mode "1920x1080@120"
 }
 
 
@@ -55,14 +49,6 @@ output "*" {
 //  ██║     ██╔══██║  ╚██╔╝  ██║   ██║██║   ██║   ██║   
 //  ███████╗██║  ██║   ██║   ╚██████╔╝╚██████╔╝   ██║   
 //  ╚══════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝  ╚═════╝    ╚═╝   
-layout {
-    gaps 8
-    border-width 2
-    border-color "#458588ff"
-    resizing-strategy "center"
-    max-columns 0
-    inhibit-fullscreen false
-}
 
 
 //   █████╗ ███╗   ██╗██╗███╗   ███╗ █████╗ ████████╗██╗ ██████╗ ███╗   ██╗
@@ -71,11 +57,6 @@ layout {
 //  ██╔══██║██║╚██╗██║██║██║╚██╔╝██║██╔══██║   ██║   ██║██║   ██║██║╚██╗██║
 //  ██║  ██║██║ ╚████║██║██║ ╚═╝ ██║██║  ██║   ██║   ██║╚██████╔╝██║ ╚████║
 //  ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
-animation {
-    workspace-switch-duration 300
-    window-show-duration 200
-    window-hide-duration 200
-}
 
 
 //  ███████╗ ██████╗██████╗ ███████╗███████╗███╗   ██╗      ███████╗██████╗  ██████╗ ███████╗
@@ -84,11 +65,6 @@ animation {
 //  ╚════██║██║     ██╔══██╗██╔══╝  ██╔══╝  ██║╚██╗██║╚════╝██╔══╝  ██║  ██║██║   ██║██╔══╝  
 //  ███████║╚██████╗██║  ██║███████╗███████╗██║ ╚████║      ███████╗██████╔╝╚██████╔╝███████╗
 //  ╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═══╝      ╚══════╝╚═════╝  ╚═════╝ ╚══════╝
-screen-edge {
-    swipe-threshold 300
-    left "none"
-    right "none"
-}
 
 
 //  ██╗  ██╗███████╗██╗   ██╗    ██████╗ ██╗███╗   ██╗██████╗ ██╗███╗   ██╗ ██████╗ ███████╗
@@ -97,9 +73,31 @@ screen-edge {
 //  ██╔═██╗ ██╔══╝    ╚██╔╝      ██╔══██╗██║██║╚██╗██║██║  ██║██║██║╚██╗██║██║   ██║╚════██║
 //  ██║  ██╗███████╗   ██║       ██████╔╝██║██║ ╚████║██████╔╝██║██║ ╚████║╚██████╔╝███████║
 //  ╚═╝  ╚═╝╚══════╝   ╚═╝       ╚═════╝ ╚═╝╚═╝  ╚═══╝╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝
-bind "Mod+Q" "quit"
-bind "Mod+Return" "spawn" "alacritty"
-bind "Mod+F" "spawn" "firefox"
+binds {
+    Mod+Q repeat=false { close-window; }
+
+    // TUI apps
+    Mod+Return { spawn "alacritty"; }
+    Mod+V { spawn "sh" "-c" "$TERMINAL -e nvim"; }
+
+    // GUI apps
+    Mod+Shift+V { spawn "code" "--ozone-platform-hint=auto" "--ozone-platform=wayland"; }
+    Mod+F { spawn "sh" "-c" "$BROWSER"; }
+    Mod+O { spawn "obsidian"; }
+    Mod+T { spawn "telegram-desktop"; }
+
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+
+    XF86MonBrightnessUp repeat=false { spawn "brightnessctl" "set" "+5%"; }
+    XF86MonBrightnessDown repeat=false { spawn "brightnessctl" "set" "5%-"; }
+
+    XF86AudioRaiseVolume repeat=false { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; }
+    XF86AudioLowerVolume repeat=false { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; }
+}
 
 
 //  ██╗    ██╗ ██████╗ ██████╗ ██╗  ██╗███████╗██████╗  █████╗  ██████╗███████╗███████╗
@@ -108,16 +106,6 @@ bind "Mod+F" "spawn" "firefox"
 //  ██║███╗██║██║   ██║██╔══██╗██╔═██╗ ╚════██║██╔═══╝ ██╔══██║██║     ██╔══╝  ╚════██║
 //  ╚███╔███╔╝╚██████╔╝██║  ██║██║  ██╗███████║██║     ██║  ██║╚██████╗███████╗███████║
 //   ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝  ╚═╝ ╚═════╝╚══════╝╚══════╝
-workspace "1"
-workspace "2"
-workspace "3"
-workspace "4"
-workspace "5"
-workspace "6"
-workspace "7"
-workspace "8"
-workspace "9"
-workspace "10"
 
 
 //  ███╗   ███╗██╗███████╗ ██████╗███████╗██╗     ██╗      █████╗ ███╗   ██╗███████╗ ██████╗ ██╗   ██╗███████╗
@@ -126,8 +114,3 @@ workspace "10"
 //  ██║╚██╔╝██║██║╚════██║██║     ██╔══╝  ██║     ██║     ██╔══██║██║╚██╗██║██╔══╝  ██║   ██║██║   ██║╚════██║
 //  ██║ ╚═╝ ██║██║███████║╚██████╗███████╗███████╗███████╗██║  ██║██║ ╚████║███████╗╚██████╔╝╚██████╔╝███████║
 //  ╚═╝     ╚═╝╚═╝╚══════╝ ╚═════╝╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝ ╚═════╝  ╚═════╝ ╚══════╝
-misc {
-    debug-tint false
-    prefer-wayland-apps false
-    last-window-behavior "keep"
-}

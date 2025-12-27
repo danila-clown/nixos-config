@@ -1,5 +1,5 @@
 {
   imports = [
-    
+    ./vpn/xray.nix
   ];
 }
