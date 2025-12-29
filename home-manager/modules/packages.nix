@@ -11,7 +11,6 @@
     neovim
     vscode
     telegram-desktop
-    xray
 
     jdk17
     maven

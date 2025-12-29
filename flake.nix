@@ -3,12 +3,12 @@
 
   inputs = {
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
 
     nixpkgs-24_05.url = "github:NixOS/nixpkgs/4333fa1caa944786110a0342b4cd1057eec74e14";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -19,8 +19,8 @@
       system = "x86_64-linux";
       user = "clown";
       hostname = "ideapad3";
-      stateVersion = "25.05";
-      homeStateVersion = "25.05";
+      stateVersion = "25.11";
+      homeStateVersion = "25.11";
 
       pkgs-24_05 = nixpkgs-24_05.legacyPackages.${system};
     in {

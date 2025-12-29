@@ -8,9 +8,6 @@
 
     # System Utilities
     waybar
-    rofi-wayland
-    swaylock
-    swayidle
     wl-clipboard
     grim
     slurp

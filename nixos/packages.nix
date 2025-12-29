@@ -12,6 +12,7 @@
     file
     tree
     docker
+    zsh
 
     # System monitoring
     htop
