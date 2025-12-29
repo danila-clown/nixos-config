@@ -24,7 +24,7 @@
               };
             };
             root = {
-              size = "50";
+              size = "50G";
               content = {
                 type = "filesystem";
                 format = "ext4";
