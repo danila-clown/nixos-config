@@ -1,45 +1,19 @@
+include "local.kdl"
+
+
+// ███████╗███╗   ██╗██╗   ██╗██╗██████╗  ██████╗ ███╗   ██╗███╗   ███╗███████╗███╗   ██╗████████╗
+// ██╔════╝████╗  ██║██║   ██║██║██╔══██╗██╔═══██╗████╗  ██║████╗ ████║██╔════╝████╗  ██║╚══██╔══╝
+// █████╗  ██╔██╗ ██║██║   ██║██║██████╔╝██║   ██║██╔██╗ ██║██╔████╔██║█████╗  ██╔██╗ ██║   ██║   
+// ██╔══╝  ██║╚██╗██║╚██╗ ██╔╝██║██╔══██╗██║   ██║██║╚██╗██║██║╚██╔╝██║██╔══╝  ██║╚██╗██║   ██║   
+// ███████╗██║ ╚████║ ╚████╔╝ ██║██║  ██║╚██████╔╝██║ ╚████║██║ ╚═╝ ██║███████╗██║ ╚████║   ██║   
+// ╚══════╝╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝   
 environment {
-    TERMINAL "alacritty"
-    BROWSER "firefox"
-
-    ELECTRON_OZONE_PLATFORM_HINT "auto"
-}
-
-
-//  ██╗███╗   ██╗██████╗ ██╗   ██╗████████╗
-//  ██║████╗  ██║██╔══██╗██║   ██║╚══██╔══╝
-//  ██║██╔██╗ ██║██████╔╝██║   ██║   ██║   
-//  ██║██║╚██╗██║██╔═══╝ ██║   ██║   ██║   
-//  ██║██║ ╚████║██║     ╚██████╔╝   ██║   
-//  ╚═╝╚═╝  ╚═══╝╚═╝      ╚═════╝    ╚═╝  
-input {
-    keyboard {
-        xkb {
-	        layout "us,ru"
-	        options "grp:alt_shift_toggle"
-        }
-    }
-
-    touchpad {
-        tap
-        natural-scroll
-    }
-}
-
-//   ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗
-//  ██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝
-//  ██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   
-//  ██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   
-//  ╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   
-//   ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   
-output "eDP-1" {
-    scale 1.0
-    mode "1920x1080@120"
-}
-
-output "HDMI-A-1" {
-    scale 1.0
-    mode "1920x1080@120"
+    QT_QPA_PLATFORM "wayland"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+    GDK_BACKEND "wayland"
+    XDG_SESSION_TYPE "wayland"
+    XDG_CURRENT_DESKTOP "niri"
+    ELECTRON_OZONE_PLATFORM_HINT "wayland"
 }
 
 
@@ -49,6 +23,53 @@ output "HDMI-A-1" {
 //  ██║     ██╔══██║  ╚██╔╝  ██║   ██║██║   ██║   ██║   
 //  ███████╗██║  ██║   ██║   ╚██████╔╝╚██████╔╝   ██║   
 //  ╚══════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝  ╚═════╝    ╚═╝   
+layout {
+    gaps 16
+    center-focused-column "never"
+    always-center-single-column
+    empty-workspace-above-first
+    default-column-display "normal"
+    background-color "#404240ff"
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    default-column-width { proportion 0.5; }
+
+    focus-ring {
+        // off
+        width 3
+        active-color "#7fc8ff"
+        inactive-color "#505050"
+        urgent-color "#9b0000"
+    }
+
+    tab-indicator {
+        off
+        hide-when-single-tab
+        place-within-column
+        gap 5
+        width 4
+        length total-proportion=1.0
+        position "right"
+        gaps-between-tabs 2
+        corner-radius 8
+        active-color "red"
+        inactive-color "gray"
+        urgent-color "blue"
+    }
+
+    struts {
+        // off
+        // left 64
+        // right 64
+        // top 32
+        // bottom 32
+    }
+}
 
 
 //   █████╗ ███╗   ██╗██╗███╗   ███╗ █████╗ ████████╗██╗ ██████╗ ███╗   ██╗
@@ -57,55 +78,63 @@ output "HDMI-A-1" {
 //  ██╔══██║██║╚██╗██║██║██║╚██╔╝██║██╔══██║   ██║   ██║██║   ██║██║╚██╗██║
 //  ██║  ██║██║ ╚████║██║██║ ╚═╝ ██║██║  ██║   ██║   ██║╚██████╔╝██║ ╚████║
 //  ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+animations {
+    workspace-switch {
+        spring damping-ratio=1.0 stiffness=350 epsilon=0.0001
+    }
 
+    window-open {
+        duration-ms 150
+        curve "ease-out-expo"
+    }
 
-//  ███████╗ ██████╗██████╗ ███████╗███████╗███╗   ██╗      ███████╗██████╗  ██████╗ ███████╗
-//  ██╔════╝██╔════╝██╔══██╗██╔════╝██╔════╝████╗  ██║      ██╔════╝██╔══██╗██╔════╝ ██╔════╝
-//  ███████╗██║     ██████╔╝█████╗  █████╗  ██╔██╗ ██║█████╗█████╗  ██║  ██║██║  ███╗█████╗  
-//  ╚════██║██║     ██╔══██╗██╔══╝  ██╔══╝  ██║╚██╗██║╚════╝██╔══╝  ██║  ██║██║   ██║██╔══╝  
-//  ███████║╚██████╗██║  ██║███████╗███████╗██║ ╚████║      ███████╗██████╔╝╚██████╔╝███████╗
-//  ╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═══╝      ╚══════╝╚═════╝  ╚═════╝ ╚══════╝
+    window-close {
+        duration-ms 150
+        curve "ease-out-quad"
+    }
 
+    horizontal-view-movement {
+        spring damping-ratio=1.0 stiffness=250 epsilon=0.0001
+    }
 
-//  ██╗  ██╗███████╗██╗   ██╗    ██████╗ ██╗███╗   ██╗██████╗ ██╗███╗   ██╗ ██████╗ ███████╗
-//  ██║ ██╔╝██╔════╝╚██╗ ██╔╝    ██╔══██╗██║████╗  ██║██╔══██╗██║████╗  ██║██╔════╝ ██╔════╝
-//  █████╔╝ █████╗   ╚████╔╝     ██████╔╝██║██╔██╗ ██║██║  ██║██║██╔██╗ ██║██║  ███╗███████╗
-//  ██╔═██╗ ██╔══╝    ╚██╔╝      ██╔══██╗██║██║╚██╗██║██║  ██║██║██║╚██╗██║██║   ██║╚════██║
-//  ██║  ██╗███████╗   ██║       ██████╔╝██║██║ ╚████║██████╔╝██║██║ ╚████║╚██████╔╝███████║
-//  ╚═╝  ╚═╝╚══════╝   ╚═╝       ╚═════╝ ╚═╝╚═╝  ╚═══╝╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝
-binds {
-    Mod+Q repeat=false { close-window; }
+    window-movement {
+        spring damping-ratio=1.0 stiffness=250 epsilon=0.0001
+    }
 
-    // TUI apps
-    Mod+Return { spawn "alacritty"; }
-    Mod+V { spawn "sh" "-c" "$TERMINAL -e nvim"; }
+    window-resize {
+        spring damping-ratio=1.0 stiffness=250 epsilon=0.0001
+    }
 
-    // GUI apps
-    Mod+Shift+V { spawn "code" "--ozone-platform-hint=auto" "--ozone-platform=wayland"; }
-    Mod+F { spawn "sh" "-c" "$BROWSER"; }
-    Mod+O { spawn "obsidian"; }
-    Mod+T { spawn "telegram-desktop"; }
+    exit-confirmation-open-close {
+        spring damping-ratio=0.6 stiffness=500 epsilon=0.01
+    }
 
-    Mod+Minus { set-column-width "-10%"; }
-    Mod+Equal { set-column-width "+10%"; }
-    Mod+Shift+Minus { set-window-height "-10%"; }
-    Mod+Shift+Equal { set-window-height "+10%"; }
+    screenshot-ui-open {
+        duration-ms 200
+        curve "ease-out-quad"
+    }
 
-
-    XF86MonBrightnessUp repeat=false { spawn "brightnessctl" "set" "+5%"; }
-    XF86MonBrightnessDown repeat=false { spawn "brightnessctl" "set" "5%-"; }
-
-    XF86AudioRaiseVolume repeat=false { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; }
-    XF86AudioLowerVolume repeat=false { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; }
+    overview-open-close {
+        spring damping-ratio=1.0 stiffness=500 epsilon=0.0001
+    }
 }
 
 
-//  ██╗    ██╗ ██████╗ ██████╗ ██╗  ██╗███████╗██████╗  █████╗  ██████╗███████╗███████╗
-//  ██║    ██║██╔═══██╗██╔══██╗██║ ██╔╝██╔════╝██╔══██╗██╔══██╗██╔════╝██╔════╝██╔════╝
-//  ██║ █╗ ██║██║   ██║██████╔╝█████╔╝ ███████╗██████╔╝███████║██║     █████╗  ███████╗
-//  ██║███╗██║██║   ██║██╔══██╗██╔═██╗ ╚════██║██╔═══╝ ██╔══██║██║     ██╔══╝  ╚════██║
-//  ╚███╔███╔╝╚██████╔╝██║  ██║██║  ██╗███████║██║     ██║  ██║╚██████╗███████╗███████║
-//   ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝  ╚═╝ ╚═════╝╚══════╝╚══════╝
+//  ██████╗ ███████╗███████╗████████╗██╗   ██╗██████╗ ███████╗███████╗
+// ██╔════╝ ██╔════╝██╔════╝╚══██╔══╝██║   ██║██╔══██╗██╔════╝██╔════╝
+// ██║  ███╗█████╗  ███████╗   ██║   ██║   ██║██████╔╝█████╗  ███████╗
+// ██║   ██║██╔══╝  ╚════██║   ██║   ██║   ██║██╔══██╗██╔══╝  ╚════██║
+// ╚██████╔╝███████╗███████║   ██║   ╚██████╔╝██║  ██║███████╗███████║
+//  ╚═════╝ ╚══════╝╚══════╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝
+gestures {
+    hot-corners {
+        off
+        // top-left
+        // top-right
+        // bottom-left
+        // bottom-right
+    }
+}
 
 
 //  ███╗   ███╗██╗███████╗ ██████╗███████╗██╗     ██╗      █████╗ ███╗   ██╗███████╗ ██████╗ ██╗   ██╗███████╗
@@ -114,3 +143,31 @@ binds {
 //  ██║╚██╔╝██║██║╚════██║██║     ██╔══╝  ██║     ██║     ██╔══██║██║╚██╗██║██╔══╝  ██║   ██║██║   ██║╚════██║
 //  ██║ ╚═╝ ██║██║███████║╚██████╗███████╗███████╗███████╗██║  ██║██║ ╚████║███████╗╚██████╔╝╚██████╔╝███████║
 //  ╚═╝     ╚═╝╚═╝╚══════╝ ╚═════╝╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝ ╚═════╝  ╚═════╝ ╚══════╝
+prefer-no-csd
+
+cursor {
+    xcursor-size 30
+    hide-when-typing
+    hide-after-inactive-ms 15000
+}
+
+overview {
+    zoom 0.6
+    backdrop-color "#262626"
+    workspace-shadow {
+        off
+        softness 40
+        spread 10
+        offset x=0 y=10
+        color "#00000050"
+    }
+}
+
+clipboard {
+    disable-primary
+}
+
+hotkey-overlay {
+    skip-at-startup
+    hide-not-bound
+}
