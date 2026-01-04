@@ -2,10 +2,9 @@
 
 {
   imports = [
-    ./hosts/${hostname}/imports.nix
+    ./hosts/${hostname}/_imports.nix
 
-    ./packages.nix
-    ./modules/imports.nix
+    ./modules/_imports.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

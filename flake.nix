@@ -17,9 +17,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    niri-flake = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
-  outputs = { self, nixpkgs, disko, nixpkgs-24_05, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, disko, home-manager, niri-flake, nixpkgs-24_05, ... }@inputs:
     let
       system = "x86_64-linux";
       user = "clown";

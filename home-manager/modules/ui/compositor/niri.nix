@@ -6,7 +6,6 @@
     xwayland
     xdg-desktop-portal
     xdg-desktop-portal-wlr
-    niri
   ];
  
   # create config
