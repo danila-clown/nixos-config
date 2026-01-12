@@ -17,18 +17,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri-flake = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
   };
 
-  outputs = { self, nixpkgs, disko, home-manager, niri-flake, nixpkgs-24_05, ... }@inputs:
+  outputs = { self, nixpkgs, disko, home-manager, nixpkgs-24_05, ... }@inputs:
     let
       system = "x86_64-linux";
-      user = "clown";
       hostname = "ideapad3";
+      gpuProfile = "intel";
+      user = "clown"; # "nvidia" | "amd" | "intel" | "vm" | "nvidia-laptop"
       stateVersion = "25.11";
       homeStateVersion = "25.11";
 
@@ -38,7 +34,8 @@
       nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
         inherit system;          
         specialArgs = {
-          inherit inputs hostname stateVersion user; 
+          inherit inputs hostname stateVersion user;
+          profile = gpuProfile;
         };
         modules = [
           disko.nixosModules.disko

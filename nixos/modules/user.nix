@@ -4,7 +4,6 @@
   programs.zsh.enable = true;
 
   users.users.${user} = {
-    shell = pkgs.zsh;
     isNormalUser = true;
     extraGroups = [
       "wheel"
@@ -12,8 +11,9 @@
       "input"
       "audio"
       "video"
-      "libvirtd"
       "docker"
     ];
+
+    shell = pkgs.zsh;
   };
 }
