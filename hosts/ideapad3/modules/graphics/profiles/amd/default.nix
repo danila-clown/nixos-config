@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./drivers
+    ../../drivers
   ];
   # Enable GPU Drivers
   drivers.amdgpu.enable = true;

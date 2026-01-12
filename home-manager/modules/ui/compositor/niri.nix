@@ -3,6 +3,7 @@
 {
   # packages
   home.packages = with pkgs; [
+    niri
     xwayland
     xdg-desktop-portal
     xdg-desktop-portal-wlr
