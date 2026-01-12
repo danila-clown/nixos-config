@@ -1,4 +1,4 @@
-{ pkgs, go-1_22, ... }:
+{ pkgs, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -11,9 +11,5 @@
     neovim
     vscode
     telegram-desktop
-
-    jdk17
-    maven
-    go-1_22
   ];
 }

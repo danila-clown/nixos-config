@@ -1,5 +1,8 @@
+{ profile, ... } :
+
 {
   imports = [
+    ./graphics/profiles/${profile}
     ./bluetooth.nix
     ./bootloader.nix
     ./desktop.nix

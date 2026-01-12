@@ -2,10 +2,7 @@
   description = "Clown's configuration";
 
   inputs = {
-
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
-
-    nixpkgs-24_05.url = "github:NixOS/nixpkgs/4333fa1caa944786110a0342b4cd1057eec74e14";
 
     disko = {
       url = "github:nix-community/disko";
@@ -16,23 +13,27 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
-  outputs = { self, nixpkgs, disko, home-manager, nixpkgs-24_05, ... }@inputs:
+  outputs = { 
+    self, 
+    nixpkgs, 
+    disko, 
+    home-manager, 
+    ... 
+  }@inputs:
     let
+      # === SYSTEM PARAMETERS ===
       system = "x86_64-linux";
       hostname = "ideapad3";
-      gpuProfile = "intel";
-      user = "clown"; # "nvidia" | "amd" | "intel" | "vm" | "nvidia-laptop"
+      gpuProfile = "nvidia-laptop"; # "nvidia" | "amd" | "vm" | "nvidia-laptop" | "intel"
+      user = "clown";
       stateVersion = "25.11";
       homeStateVersion = "25.11";
-
-      pkgs-24_05 = nixpkgs-24_05.legacyPackages.${system};
+      # =========================
     in {
-
       nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
-        inherit system;          
+        inherit system;           
         specialArgs = {
           inherit inputs hostname stateVersion user;
           profile = gpuProfile;
@@ -41,17 +42,16 @@
           disko.nixosModules.disko
           ./disko.nix
           ./nixos/configuration.nix
+          ./hosts/${hostname}/_imports.nix
         ];
       };
-
+      
       homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
         extraSpecialArgs = {
           inherit inputs user homeStateVersion;
-          go-1_22 = pkgs-24_05.go;
         };
         modules = [ ./home-manager/home.nix ];
       };
- 
     };
 }
