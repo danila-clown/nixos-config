@@ -1,6 +1,6 @@
 {
   imports = [
-    ./apps/imports.nix
+    ./programs/imports.nix
     ./ui/imports.nix
 
     ./fonts.nix

@@ -1,3 +1,127 @@
-/*
-I couldn't make include work, I'm leaving it for later. :)
-*/
+//  ██╗███╗   ██╗██████╗ ██╗   ██╗████████╗
+//  ██║████╗  ██║██╔══██╗██║   ██║╚══██╔══╝
+//  ██║██╔██╗ ██║██████╔╝██║   ██║   ██║   
+//  ██║██║╚██╗██║██╔═══╝ ██║   ██║   ██║   
+//  ██║██║ ╚████║██║     ╚██████╔╝   ██║   
+//  ╚═╝╚═╝  ╚═══╝╚═╝      ╚═════╝    ╚═╝  
+input {
+    mod-key "Super"
+    focus-follows-mouse max-scroll-amount="0%"
+
+    keyboard {
+        xkb {
+	        layout "us,ru"
+	        options "grp:alt_shift_toggle"
+        }
+        repeat-delay 500
+        repeat-rate 20
+    }
+
+    touchpad {
+        tap
+        dwt
+        natural-scroll
+        scroll-factor 1
+        scroll-method "two-finger"
+        tap-button-map "left-middle-right"
+    }
+
+    mouse { 
+        accel-speed 0.1
+        accel-profile "flat"
+        scroll-button 273
+    }
+}
+
+//   ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗
+//  ██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝
+//  ██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   
+//  ██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   
+//  ╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   
+//   ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   
+output "eDP-1" {
+    scale 1.0
+    mode "1920x1080@120"
+    transform "normal"
+    position x=0 y=0
+}
+
+output "HDMI-A-1" {
+    // off
+    scale 1.0
+    mode "1920x1080@239.999"
+    transform "normal"
+    position x=0 y=0
+}
+
+
+//  ██╗  ██╗███████╗██╗   ██╗    ██████╗ ██╗███╗   ██╗██████╗ ██╗███╗   ██╗ ██████╗ ███████╗
+//  ██║ ██╔╝██╔════╝╚██╗ ██╔╝    ██╔══██╗██║████╗  ██║██╔══██╗██║████╗  ██║██╔════╝ ██╔════╝
+//  █████╔╝ █████╗   ╚████╔╝     ██████╔╝██║██╔██╗ ██║██║  ██║██║██╔██╗ ██║██║  ███╗███████╗
+//  ██╔═██╗ ██╔══╝    ╚██╔╝      ██╔══██╗██║██║╚██╗██║██║  ██║██║██║╚██╗██║██║   ██║╚════██║
+//  ██║  ██╗███████╗   ██║       ██████╔╝██║██║ ╚████║██████╔╝██║██║ ╚████║╚██████╔╝███████║
+//  ╚═╝  ╚═╝╚══════╝   ╚═╝       ╚═════╝ ╚═╝╚═╝  ╚═══╝╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝
+binds {
+    Mod+Q repeat=false { close-window; }
+
+    // TUI apps
+    Mod+Return { spawn "sh" "-c" "alacritty --title 'terminal'"; }
+    Mod+V { spawn "sh" "-c" "alacritty --title 'nvim' -e nvim"; }
+
+    // GUI apps
+    Mod+Shift+V { spawn "code"; }
+    Mod+F { spawn "sh" "-c" "firefox --title 'browser'"; }
+    Mod+O { spawn "obsidian"; }
+    Mod+T { spawn "Telegram"; }
+
+    Mod+H { focus-column-left; }
+    Mod+J { focus-workspace-down; }
+    Mod+K { focus-workspace-up; }
+    Mod+L { focus-column-right; }
+
+    Mod+Shift+H { move-column-left; }
+    Mod+Shift+J { move-column-to-workspace-down; }
+    Mod+Shift+K { move-column-to-workspace-up; }
+    Mod+Shift+L { move-column-right; }
+
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+
+    XF86MonBrightnessUp repeat=false { spawn "brightnessctl" "set" "+5%"; }
+    XF86MonBrightnessDown repeat=false { spawn "brightnessctl" "set" "5%-"; }
+
+    XF86AudioRaiseVolume repeat=false { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; }
+    XF86AudioLowerVolume repeat=false { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; }
+}
+
+
+// ██╗    ██╗██╗███╗   ██╗██████╗  ██████╗ ██╗    ██╗      ██████╗ ██╗   ██╗██╗     ███████╗
+// ██║    ██║██║████╗  ██║██╔══██╗██╔═══██╗██║    ██║      ██╔══██╗██║   ██║██║     ██╔════╝
+// ██║ █╗ ██║██║██╔██╗ ██║██║  ██║██║   ██║██║ █╗ ██║█████╗██████╔╝██║   ██║██║     █████╗  
+// ██║███╗██║██║██║╚██╗██║██║  ██║██║   ██║██║███╗██║╚════╝██╔══██╗██║   ██║██║     ██╔══╝  
+// ╚███╔███╔╝██║██║ ╚████║██████╔╝╚██████╔╝╚███╔███╔╝      ██║  ██║╚██████╔╝███████╗███████╗
+//  ╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝╚═════╝  ╚═════╝  ╚══╝╚══╝       ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚══════╝
+window-rule {
+    open-maximized true
+    geometry-corner-radius 8
+    clip-to-geometry true
+}
+
+window-rule {
+    match title="terminal"
+    open-maximized false
+}
+
+window-rule {
+    match title="nvim"
+    open-maximized true
+}
+ 
+
+//  ███╗   ███╗██╗███████╗ ██████╗███████╗██╗     ██╗      █████╗ ███╗   ██╗███████╗ ██████╗ ██╗   ██╗███████╗
+//  ████╗ ████║██║██╔════╝██╔════╝██╔════╝██║     ██║     ██╔══██╗████╗  ██║██╔════╝██╔═══██╗██║   ██║██╔════╝
+//  ██╔████╔██║██║███████╗██║     █████╗  ██║     ██║     ███████║██╔██╗ ██║█████╗  ██║   ██║██║   ██║███████╗
+//  ██║╚██╔╝██║██║╚════██║██║     ██╔══╝  ██║     ██║     ██╔══██║██║╚██╗██║██╔══╝  ██║   ██║██║   ██║╚════██║
+//  ██║ ╚═╝ ██║██║███████║╚██████╗███████╗███████╗███████╗██║  ██║██║ ╚████║███████╗╚██████╔╝╚██████╔╝███████║
+//  ╚═╝     ╚═╝╚═╝╚══════╝ ╚═════╝╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝ ╚═════╝  ╚═════╝ ╚══════╝
+screenshot-path "~/pictures/screenshots from %Y-%m-%d %H-%M-%S.png"
